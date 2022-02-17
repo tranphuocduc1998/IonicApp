@@ -1,20 +1,66 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      My App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- <input #fileVideo (change)="importFileVideo($event)" accept="video/*" hidden type="file">
+  <input #fileImage (change)="importFileImage($event)" accept="image/png, image/jpeg" hidden type="file"> -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="arrow-back-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <!-- <ion-fab-button color="primary" (click)="fileVideo.click()">
+        <ion-icon name="videocam"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" (click)="fileImage.click()">
+        <ion-icon name="image"></ion-icon>
+      </ion-fab-button> -->
+      <ion-fab-button color="primary" (click)="openCamera()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+<!-- 
+
+
+  <ion-card [ngClass]="{'showfile-card': selectedFileVideo || selectedFileImage}">
+    <ion-row *ngIf="!selectedFileVideo && !selectedFileImage " class="ion-justify-content-center ion-align-items-center"
+      style="height: 100%;">
+      <ion-col size="6" class="ion-text-center">
+        <ion-button (click)="fileVideo.click()">
+          <ion-icon slot="start" name="videocam"></ion-icon>
+          Tải video
+        </ion-button>
+      </ion-col>
+      <ion-col size="6" class="ion-text-center">
+        <ion-button (click)="fileImage.click()">
+          <ion-icon slot="start" name="image"></ion-icon>
+          Tải hình ảnh
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <video *ngIf="selectedFileVideo" #video src="{{selectedFileVideo}}" controls></video>
+    <img *ngIf="selectedFileImage" [src]="selectedFileImage">
+  </ion-card>
+
+  <ion-card>
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%;">
+      Kết quả
+    </ion-row>
+  </ion-card> -->
 </ion-content>
+
+<!-- <ion-content *ngIf="showCamera" color="transparent">
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="stopCamera()">
+      {{this.count}}
+    </ion-fab-button>
+  </ion-fab>
+</ion-content> -->
