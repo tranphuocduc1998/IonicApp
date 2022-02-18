@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header *ngIf="!showCamera" [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>
       My App
@@ -6,27 +6,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- <input #fileVideo (change)="importFileVideo($event)" accept="video/*" hidden type="file">
-  <input #fileImage (change)="importFileImage($event)" accept="image/png, image/jpeg" hidden type="file"> -->
+<ion-content *ngIf="!showCamera">
+  <input #fileVideo (change)="importFileVideo($event)" accept="video/*" hidden type="file">
+  <input #fileImage (change)="importFileImage($event)" accept="image/png, image/jpeg" hidden type="file">
 
-  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="arrow-back-circle"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="start">
-      <!-- <ion-fab-button color="primary" (click)="fileVideo.click()">
+      <ion-fab-button color="primary" (click)="fileVideo.click()">
         <ion-icon name="videocam"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="primary" (click)="fileImage.click()">
         <ion-icon name="image"></ion-icon>
-      </ion-fab-button> -->
+      </ion-fab-button>
       <ion-fab-button color="primary" (click)="openCamera()">
         <ion-icon name="camera"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
-<!-- 
+
 
 
   <ion-card [ngClass]="{'showfile-card': selectedFileVideo || selectedFileImage}">
@@ -54,13 +54,21 @@
     <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%;">
       Kết quả
     </ion-row>
-  </ion-card> -->
+  </ion-card>
 </ion-content>
 
-<!-- <ion-content *ngIf="showCamera" color="transparent">
+<ion-content *ngIf="showCamera" class="i-transparent">
+  <ion-card>
+    <ion-card-content>
+      {{count}}
+      <br />
+      {{cameraPickture}}
+    </ion-card-content>
+  </ion-card>
+
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="stopCamera()">
-      {{this.count}}
+      Stop
     </ion-fab-button>
   </ion-fab>
-</ion-content> -->
+</ion-content>
